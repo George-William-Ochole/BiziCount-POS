@@ -706,7 +706,7 @@ We welcome contributions from the community! SupermarketPOS is built for Ugandan
   - Data cleaning and validation
   - Training on new system
 
-**Contact:** support@yoursite.com | WhatsApp: +256 XXX XXXXXX
+**Contact:** support@bizicount.com | WhatsApp: +256 XXX XXXXXX
 
 ---
 
