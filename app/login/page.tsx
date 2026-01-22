@@ -23,7 +23,7 @@ const carouselImages = [
   },
   {
     url: "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    title: "Well-Stocked Retail Display",
+    title: "Well-Stocked Supermarket Display",
   },
   {
     url: "https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
