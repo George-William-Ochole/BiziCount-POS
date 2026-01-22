@@ -1,7 +1,7 @@
 # 🛒 BiziCountPOS - Free, Open-Source POS for Uganda
 
 
- **The First 100% FREE, Self-Hosted Point of Sale System Built Specifically for Ugandan Supermarkets**
+ **The First 100% FREE, hybrid (online & offline) Self-Hosted Point of Sale System Built Specifically for Ugandan Supermarkets**
 
 Save UGX 600k - 2.4M annually with true offline functionality, native Mobile Money support, and URA EFRIS compliance.
 
