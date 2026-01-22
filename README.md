@@ -1,7 +1,7 @@
 # 🛒 BiziCountPOS - Free, Open-Source POS for Uganda
 
 
- **The First 100% FREE, Self-Hosted Point of Sale System Built Specifically for Ugandan Supermarkets**
+ **The First 100% FREE, hybrid (online & offline) Self-Hosted Point of Sale System Built Specifically for Ugandan Supermarkets**
 
 Save UGX 600k - 2.4M annually with true offline functionality, native Mobile Money support, and URA EFRIS compliance.
 
@@ -97,6 +97,37 @@ Save UGX 600k - 2.4M annually with true offline functionality, native Mobile Mon
 - **Deployment**: Electron (desktop app), Docker (local server), Vercel (cloud option)
 
 ---
+ Final Project Structure
+
+```
+supermarket-pos/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   ├── login/             # Login page
+│   ├── dashboard/         # Dashboard pages
+│   ├── admin/             # Admin pages
+│   ├── manager/           # Manager pages
+│   └── cashier/           # Cashier pages
+├── components/            # React components
+│   ├── ui/               # Reusable UI components
+│   └── shared/           # Shared components
+├── lib/                   # Utilities
+│   ├── prisma.ts         # Prisma client
+│   └── utils.ts          # Helper functions
+├── prisma/
+│   ├── schema.prisma     # Database schema
+│   └── seed.ts           # Seed data
+├── electron/              # Electron files
+│   ├── main.js           # Main process
+│   └── preload.js        # Preload script
+├── public/                # Static files
+│   └── icon.png          # App icon
+├── .env                   # Environment variables
+├── package.json
+├── next.config.js
+├── tailwind.config.ts
+└── tsconfig.json
+
 
 ## 🚀 Quick Start (3 Installation Options)
 
@@ -706,7 +737,7 @@ We welcome contributions from the community! SupermarketPOS is built for Ugandan
   - Data cleaning and validation
   - Training on new system
 
-**Contact:** support@yoursite.com | WhatsApp: +256 XXX XXXXXX
+**Contact:** support@bizicount.com | WhatsApp: +256 XXX XXXXXX
 
 ---
 
