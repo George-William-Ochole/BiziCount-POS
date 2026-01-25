@@ -1,27 +1,70 @@
+import { Header } from "@/components/cashier/dashboard/Header";
+import { PaymentPanel } from "@/components/cashier/dashboard/PaymentPannel";
+import { POSCart } from "@/components/cashier/dashboard/POSCart";
+import { ProductScanner } from "@/components/cashier/dashboard/ProductScanner";
+import { QuickActions } from "@/components/cashier/dashboard/QuickActions";
+import { QuickProductsGrid } from "@/components/cashier/dashboard/QuickProducts";
+import { RecentSales } from "@/components/cashier/dashboard/RecentSales";
+import { ShiftStats } from "@/components/cashier/dashboard/Shiftstats";
+import { Sidebar } from "@/components/cashier/dashboard/SideBar";
 
-import { requireRole } from '@/lib/auth-helpers';
-import { Role } from '@/lib/rbac/permissions';
 
-export default async function CashierDashboard() {
-  const session = await requireRole([Role.ADMIN, Role.STORE_MANAGER, Role.CASHIER]);
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Cashier Dashboard</h1>
-        <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-lg mb-4">Welcome, {session.user.name}!</p>
-          <p className="text-gray-600">Role: {session.user.role}</p>
-          
-          <div className="mt-6">
-            <button className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 text-lg">
-              New Sale
-            </button>
-          </div>
-          
-          <div className="mt-6 bg-gray-50 p-4 rounded-lg">
-            <h3 className="font-semibold mb-2">Today&apos;s Sales</h3>
-            <p className="text-gray-600">No sales yet</p>
+    <div className="flex h-screen bg-[#0d0d0d] overflow-hidden">
+      {/* Sidebar */}
+      <Sidebar activeItem="pos" />
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Header */}
+        <Header />
+
+        {/* Cashier Board Content */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-6">
+            {/* Page Title */}
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h1 className="text-white text-2xl font-semibold">Point of Sale</h1>
+                <p className="text-gray-400 text-sm">Cashier Terminal - Register #3</p>
+              </div>
+              <span className="text-gray-400 text-sm">Sunday, January 25, 2026</span>
+            </div>
+
+            {/* Shift Stats */}
+            <div className="mb-6">
+              <ShiftStats />
+            </div>
+
+            {/* Main POS Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Left Section - Product Entry & Actions */}
+              <div className="lg:col-span-2 space-y-6">
+                {/* Scanner */}
+                <ProductScanner />
+
+                {/* Quick Categories */}
+                <QuickProductsGrid />
+
+                {/* Quick Actions */}
+                <QuickActions />
+
+                {/* Recent Sales */}
+                <RecentSales />
+              </div>
+
+              {/* Right Section - Cart & Payment */}
+              <div className="space-y-6">
+                {/* Current Transaction Cart */}
+                <div className="h-[500px]">
+                  <POSCart />
+                </div>
+
+                {/* Payment Panel */}
+                <PaymentPanel />
+              </div>
+            </div>
           </div>
         </div>
       </div>
