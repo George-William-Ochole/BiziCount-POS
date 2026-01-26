@@ -54,12 +54,12 @@ export function Sidebar({ collapsed, activeTab, onTabChange }: SidebarProps) {
       {/* Logo */}
       <div className="p-4 border-b border-gray-800">
         <div className="flex items-center gap-3">
-          <div className="bg-gradient-to-br from-purple-600 to-indigo-600 p-2 rounded-lg">
+          <div className="bg-linear-to-br from-purple-600 to-indigo-600 p-2 rounded-lg">
             👑
           </div>
           {!collapsed && (
             <div>
-              <h2 className="font-bold text-lg">AdminHub</h2>
+              <h2 className="font-bold text-lg">SuperMarket Admin</h2>
               <p className="text-xs text-gray-400">System Control</p>
             </div>
           )}
@@ -99,12 +99,12 @@ export function Sidebar({ collapsed, activeTab, onTabChange }: SidebarProps) {
       {/* User Profile */}
       <div className="p-3 border-t border-gray-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
-            <span className="text-sm font-semibold">JA</span>
+          <div className="w-10 h-10 rounded-full bg-linear-to-br from-purple-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
+            <span className="text-sm font-semibold">GA</span>
           </div>
           {!collapsed && (
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-sm truncate">John Admin</p>
+              <p className="font-semibold text-sm truncate">George Admin</p>
               <p className="text-xs text-gray-400 truncate">Super Administrator</p>
             </div>
           )}

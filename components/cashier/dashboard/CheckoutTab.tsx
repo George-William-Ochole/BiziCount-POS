@@ -339,12 +339,12 @@ export function CheckoutTab() {
                   <SelectTrigger className="bg-[#0f0a1a] border-gray-700">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="cash">Cash</SelectItem>
-                    <SelectItem value="card">Card</SelectItem>
-                    <SelectItem value="mtn">MTN Money</SelectItem>
-                    <SelectItem value="airtel">Airtel Money</SelectItem>
-                    <SelectItem value="split">Split Payment</SelectItem>
+                  <SelectContent className="bg-[#1a1625] border-gray-700">
+                    <SelectItem value="cash" className="hover:bg-[#2a2535] focus:bg-[#2a2535]">Cash</SelectItem>
+                    <SelectItem value="card" className="hover:bg-[#2a2535] focus:bg-[#2a2535]">Card</SelectItem>
+                    <SelectItem value="mtn" className="hover:bg-[#2a2535] focus:bg-[#2a2535]">MTN Money</SelectItem>
+                    <SelectItem value="airtel" className="hover:bg-[#2a2535] focus:bg-[#2a2535]">Airtel Money</SelectItem>
+                    <SelectItem value="split" className="hover:bg-[#2a2535] focus:bg-[#2a2535]">Split Payment</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

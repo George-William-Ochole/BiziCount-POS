@@ -99,7 +99,7 @@ function LoginContent() {
   ];
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-700 to-green-700 flex flex-col lg:flex-row overflow-hidden">
+    <div className="h-screen bg-linear-to-br from-blue-700 to-green-700 flex flex-col lg:flex-row overflow-hidden">
       {/* Left: Auto-sliding Carousel – 55% width */}
       <div className="hidden lg:block w-full lg:w-[55%] relative overflow-hidden">
         {carouselImages.map((slide, index) => (
@@ -110,7 +110,7 @@ function LoginContent() {
             }`}
           >
             <img src={slide.url} alt={slide.title} className="w-full h-full object-cover brightness-75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
             
             <div className="absolute bottom-12 left-6 right-6 text-white">
               <h2 className="text-3xl font-bold mb-2 drop-shadow-lg">Welcome Back</h2>
@@ -138,7 +138,7 @@ function LoginContent() {
         <Card className="w-full max-w-xs bg-white shadow-2xl border-0 rounded-xl my-2">
           <CardHeader className="text-center pb-2 pt-3 px-4">
             <div className="flex items-center justify-center gap-2 mb-1">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-white text-sm font-bold">BC</div>
+              <div className="w-8 h-8 bg-linear-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-white text-sm font-bold">BC</div>
               <CardTitle className="text-xl font-extrabold text-[#0f7aa3]">BiziCount</CardTitle>
             </div>
             <p className="text-[10px] font-medium text-gray-700">Sign in to your account</p>

@@ -73,11 +73,11 @@ export function Header({ activeTab, onToggleSidebar, notificationCount = 3 }: He
             <HelpCircle className="w-5 h-5" />
           </Button>
           <div className="flex items-center gap-2 bg-[#0f0a1a] px-3 py-2 rounded-lg">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-              <span className="text-sm font-semibold">JA</span>
+            <div className="w-8 h-8 rounded-full bg-linear-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+              <span className="text-sm font-semibold">GA</span>
             </div>
             <div className="text-sm hidden lg:block">
-              <p className="font-semibold">John Admin</p>
+              <p className="font-semibold">George Admin</p>
               <p className="text-xs text-gray-400">Super Admin</p>
             </div>
           </div>
