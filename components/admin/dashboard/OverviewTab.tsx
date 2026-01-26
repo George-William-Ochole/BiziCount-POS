@@ -33,7 +33,7 @@ export function OverviewTab({ onTabChange }: OverviewTabProps) {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-              <p className="text-3xl font-bold text-green-400">${(financialOverview.totalRevenue / 1000).toFixed(1)}K</p>
+              <p className="text-3xl font-bold text-green-400">Ush {(financialOverview.totalRevenue / 1000).toFixed(1)}K</p>
               <p className="text-green-500 text-sm mt-1 flex items-center gap-1">
                 <TrendingUp className="w-3 h-3" /> +{financialOverview.monthlyGrowth}%
               </p>
@@ -48,7 +48,7 @@ export function OverviewTab({ onTabChange }: OverviewTabProps) {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-1">Net Profit</p>
-              <p className="text-3xl font-bold text-blue-400">${(financialOverview.netProfit / 1000).toFixed(1)}K</p>
+              <p className="text-3xl font-bold text-blue-400">Ush {(financialOverview.netProfit / 1000).toFixed(1)}K</p>
               <p className="text-sm text-gray-400 mt-1">{financialOverview.profitMargin}% margin</p>
             </div>
             <div className="bg-blue-500/20 p-3 rounded-lg">

@@ -134,7 +134,7 @@ export const notificationsData = [
     id: 2,
     type: 'payment',
     title: 'Payment Received',
-    message: '$2,150 from Central Plaza',
+    message: 'Ush 2,150 from Central Plaza',
     time: '1 hour ago',
     unread: true,
   },

@@ -70,7 +70,7 @@ export function PaymentsTab() {
             <div className="bg-[#0f0a1a] rounded-lg p-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400">Total Paid (This Month)</span>
-                <span className="text-2xl font-bold text-green-400">$19,500</span>
+                <span className="text-2xl font-bold text-green-400">Ush 19,500</span>
               </div>
               <Progress value={78} className="h-2" />
               <p className="text-xs text-gray-400 mt-1">78% of expected revenue</p>
@@ -79,7 +79,7 @@ export function PaymentsTab() {
             <div className="bg-[#0f0a1a] rounded-lg p-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400">Pending Payments</span>
-                <span className="text-2xl font-bold text-orange-400">$5,200</span>
+                <span className="text-2xl font-bold text-orange-400">Ush 5,200</span>
               </div>
               <Progress value={22} className="h-2" />
               <p className="text-xs text-gray-400 mt-1">5 pending invoices</p>
@@ -90,7 +90,7 @@ export function PaymentsTab() {
                 <span className="text-gray-400">Next Payment Due</span>
                 <span className="font-semibold text-pink-400">Nov 25, 2023</span>
               </div>
-              <p className="text-sm text-gray-400 mt-1">Downtown Store - $1,245</p>
+              <p className="text-sm text-gray-400 mt-1">Downtown Store - Ush 1,245</p>
             </div>
           </div>
         </Card>

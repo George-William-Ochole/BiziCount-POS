@@ -89,7 +89,7 @@ export function ReturnsTab() {
           </div>
           <div className="bg-orange-500/20 border border-orange-500 rounded-lg p-3">
             <p className="text-sm text-orange-400">
-              ⚠️ Manager approval required for returns over $50
+              ⚠️ Manager approval required for returns over Ush 50
             </p>
           </div>
           <Button className="w-full bg-green-600 hover:bg-green-700">

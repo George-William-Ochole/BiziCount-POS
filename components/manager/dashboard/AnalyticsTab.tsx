@@ -24,14 +24,14 @@ export function AnalyticsTab() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="bg-[#1a1625] border-gray-800 p-5">
           <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-          <p className="text-3xl font-bold text-green-400">$24,500</p>
+          <p className="text-3xl font-bold text-green-400">Ush 24,500</p>
           <p className="text-green-500 text-sm mt-1 flex items-center gap-1">
             <TrendingUp className="w-3 h-3" /> +8.3% vs last month
           </p>
         </Card>
         <Card className="bg-[#1a1625] border-gray-800 p-5">
           <p className="text-gray-400 text-sm mb-1">Gross Profit</p>
-          <p className="text-3xl font-bold text-blue-400">$6,100</p>
+          <p className="text-3xl font-bold text-blue-400">Ush 6,100</p>
           <p className="text-blue-500 text-sm mt-1 flex items-center gap-1">
             24.9% margin
           </p>
@@ -43,7 +43,7 @@ export function AnalyticsTab() {
         </Card>
         <Card className="bg-[#1a1625] border-gray-800 p-5">
           <p className="text-gray-400 text-sm mb-1">Dead Stock Value</p>
-          <p className="text-3xl font-bold text-red-400">$399</p>
+          <p className="text-3xl font-bold text-red-400">Ush 399</p>
           <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
             <TrendingDown className="w-3 h-3" /> 3 products
           </p>

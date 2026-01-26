@@ -58,7 +58,7 @@ export function ReportsTab() {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-              <p className="text-3xl font-bold text-green-400">$1,247.50</p>
+              <p className="text-3xl font-bold text-green-400">Ush 1,247.50</p>
               <p className="text-green-500 text-sm mt-1 flex items-center gap-1">
                 <TrendingUp className="w-3 h-3" /> +12.5%
               </p>
@@ -82,7 +82,7 @@ export function ReportsTab() {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-1">Avg. Basket</p>
-              <p className="text-3xl font-bold text-purple-400">$27.72</p>
+              <p className="text-3xl font-bold text-purple-400">Ush 27.72</p>
               <p className="text-green-500 text-sm mt-1 flex items-center gap-1">
                 <TrendingUp className="w-3 h-3" /> +3.8%
               </p>

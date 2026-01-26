@@ -18,9 +18,9 @@ export const productCatalog = [
 ];
 
 export const customerLoyalty = [
-  { id: 'CUST-001', name: 'John Doe', phone: '+256 700 123456', points: 450, tier: 'Gold', totalSpent: 1250 },
-  { id: 'CUST-002', name: 'Jane Smith', phone: '+256 700 234567', points: 280, tier: 'Silver', totalSpent: 780 },
-  { id: 'CUST-003', name: 'Bob Johnson', phone: '+256 700 345678', points: 150, tier: 'Bronze', totalSpent: 420 },
+  { id: 'CUST-001', name: 'Moses Peter', phone: '+256 700 123456', points: 450, tier: 'Gold', totalSpent: 1250 },
+  { id: 'CUST-002', name: 'Yafet', phone: '+256 700 234567', points: 280, tier: 'Silver', totalSpent: 780 },
+  { id: 'CUST-003', name: 'Mohamed Johnson', phone: '+256 700 345678', points: 150, tier: 'Bronze', totalSpent: 420 },
   { id: 'CUST-004', name: 'Alice Williams', phone: '+256 700 456789', points: 620, tier: 'Platinum', totalSpent: 2100 },
 ];
 

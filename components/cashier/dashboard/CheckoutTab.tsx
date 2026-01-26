@@ -136,7 +136,7 @@ export function CheckoutTab() {
                   <p className="text-xs text-gray-400">{product.barcode}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-green-400">${product.price.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-green-400">Ush {product.price.toFixed(2)}</span>
                   <Badge variant={product.stock < 20 ? 'destructive' : 'secondary'} className="text-xs">
                     {product.stock} left
                   </Badge>
@@ -178,7 +178,7 @@ export function CheckoutTab() {
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex-1">
                     <p className="font-semibold text-sm">{item.name}</p>
-                    <p className="text-xs text-gray-400">${item.price.toFixed(2)} each</p>
+                    <p className="text-xs text-gray-400">Ush {item.price.toFixed(2)} each</p>
                   </div>
                   <Button
                     variant="ghost"
@@ -210,7 +210,7 @@ export function CheckoutTab() {
                     </Button>
                   </div>
                   <span className="font-bold text-green-400">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    Ush {(item.price * item.quantity).toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -237,17 +237,17 @@ export function CheckoutTab() {
         <div className="bg-[#0f0a1a] rounded-lg p-4 mb-4 space-y-2">
           <div className="flex justify-between text-sm">
             <span className="text-gray-400">Subtotal:</span>
-            <span className="font-semibold">${subtotal.toFixed(2)}</span>
+            <span className="font-semibold">Ush {subtotal.toFixed(2)}</span>
           </div>
           {discount > 0 && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Discount ({discount}%):</span>
-              <span className="font-semibold text-yellow-500">-${discountAmount.toFixed(2)}</span>
+              <span className="font-semibold text-yellow-500">-Ush {discountAmount.toFixed(2)}</span>
             </div>
           )}
           <div className="border-t border-gray-700 pt-2 flex justify-between">
             <span className="font-bold text-lg">Total:</span>
-            <span className="font-bold text-2xl text-green-400">${total.toFixed(2)}</span>
+            <span className="font-bold text-2xl text-green-400">Ush {total.toFixed(2)}</span>
           </div>
         </div>
 
@@ -330,7 +330,7 @@ export function CheckoutTab() {
             <div className="space-y-4">
               <div className="bg-[#0f0a1a] rounded-lg p-4">
                 <p className="text-gray-400 mb-1">Amount Due</p>
-                <p className="text-3xl font-bold text-green-400">${total.toFixed(2)}</p>
+                <p className="text-3xl font-bold text-green-400">Ush {total.toFixed(2)}</p>
               </div>
 
               <div>

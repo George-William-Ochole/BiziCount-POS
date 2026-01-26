@@ -185,7 +185,7 @@ export function CheckoutTabNew() {
                   <p className="font-semibold text-sm mb-1">{product.name}</p>
                   <p className="text-xs text-gray-400 mb-2">{product.sku}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-blue-400 font-bold">${product.retailPrice.toFixed(2)}</span>
+                    <span className="text-blue-400 font-bold">Ush {product.retailPrice.toFixed(2)}</span>
                     <Badge variant="secondary">{product.stock} in stock</Badge>
                   </div>
                 </button>
@@ -213,7 +213,7 @@ export function CheckoutTabNew() {
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <p className="font-semibold text-sm">{item.name}</p>
-                      <p className="text-xs text-gray-400">${item.price.toFixed(2)}</p>
+                      <p className="text-xs text-gray-400">Ush {item.price.toFixed(2)}</p>
                     </div>
                     <Button
                       size="sm"
@@ -285,17 +285,17 @@ export function CheckoutTabNew() {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between text-gray-400">
                 <span>Subtotal:</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>Ush {subtotal.toFixed(2)}</span>
               </div>
               {discount > 0 && (
                 <div className="flex justify-between text-green-400">
                   <span>Discount ({discount}%):</span>
-                  <span>-${discountAmount.toFixed(2)}</span>
+                  <span>-Ush {discountAmount.toFixed(2)}</span>
                 </div>
               )}
               <div className="flex justify-between text-lg font-bold border-t border-gray-800 pt-2 mt-2">
                 <span>Total:</span>
-                <span className="text-blue-400">${total.toFixed(2)}</span>
+                <span className="text-blue-400">Ush {total.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -354,17 +354,17 @@ export function CheckoutTabNew() {
               <div className="bg-[#0f0a1a] border border-gray-800 rounded-lg p-4 space-y-2">
                 <div className="flex justify-between text-gray-400">
                   <span>Subtotal:</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>Ush {subtotal.toFixed(2)}</span>
                 </div>
                 {discount > 0 && (
                   <div className="flex justify-between text-green-400">
                     <span>Discount:</span>
-                    <span>-${discountAmount.toFixed(2)}</span>
+                    <span>-Ush {discountAmount.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between font-bold border-t border-gray-800 pt-2 mt-2">
                   <span>Total Amount:</span>
-                  <span className="text-blue-400">${total.toFixed(2)}</span>
+                  <span className="text-blue-400">Ush {total.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm pt-2">
                   <span className="text-gray-400">Payment Method:</span>

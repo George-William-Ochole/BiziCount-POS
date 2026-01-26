@@ -55,7 +55,7 @@ export function OverviewTab({ onTabChange }: OverviewTabProps) {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-1">Monthly Revenue</p>
-              <p className="text-3xl font-bold text-green-400">$24.5k</p>
+              <p className="text-3xl font-bold text-green-400">Ush 24.5k</p>
               <p className="text-sm text-green-500 mt-1">↑ +8.3%</p>
             </div>
             <div className="bg-green-500/20 p-3 rounded-lg">

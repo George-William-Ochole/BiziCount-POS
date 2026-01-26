@@ -47,7 +47,7 @@ export function StoresTab() {
             <div className="grid grid-cols-3 gap-4 p-4 bg-[#0f0a1a] rounded-lg mb-4">
               <div>
                 <p className="text-gray-400 text-xs mb-1">Revenue</p>
-                <p className="font-bold text-green-400">${(store.revenue / 1000).toFixed(1)}K</p>
+                <p className="font-bold text-green-400">Ush {(store.revenue / 1000).toFixed(1)}K</p>
               </div>
               <div>
                 <p className="text-gray-400 text-xs mb-1">Employees</p>

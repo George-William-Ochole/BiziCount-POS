@@ -59,7 +59,7 @@ export function OverviewTab({ onTabChange }: OverviewTabProps) {
         />
         <StatCard
           label="Monthly Revenue"
-          value="$24.7k"
+          value="Ush 24.7k"
           change="↑ +8.1%"
           changeType="positive"
           icon={DollarSign}
@@ -76,7 +76,7 @@ export function OverviewTab({ onTabChange }: OverviewTabProps) {
         />
         <StatCard
           label="Pending Payment"
-          value="$5.2k"
+          value="Ush 5.2k"
           subtitle="⏱ 5 invoices"
           icon={FileText}
           iconColor="text-orange-400"

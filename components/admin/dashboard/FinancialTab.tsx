@@ -21,7 +21,7 @@ export function FinancialTab() {
           <div className="flex items-start justify-between mb-2">
             <div>
               <p className="text-gray-400 text-sm mb-1">Total Revenue</p>
-              <p className="text-3xl font-bold text-green-400">${(financialOverview.totalRevenue / 1000).toFixed(1)}K</p>
+              <p className="text-3xl font-bold text-green-400">Ush {(financialOverview.totalRevenue / 1000).toFixed(1)}K</p>
             </div>
             <div className="bg-green-500/20 p-3 rounded-lg">
               <DollarSign className="w-6 h-6 text-green-400" />
@@ -36,7 +36,7 @@ export function FinancialTab() {
           <div className="flex items-start justify-between mb-2">
             <div>
               <p className="text-gray-400 text-sm mb-1">Total Expenses</p>
-              <p className="text-3xl font-bold text-red-400">${(financialOverview.totalExpenses / 1000).toFixed(1)}K</p>
+              <p className="text-3xl font-bold text-red-400">Ush {(financialOverview.totalExpenses / 1000).toFixed(1)}K</p>
             </div>
             <div className="bg-red-500/20 p-3 rounded-lg">
               <DollarSign className="w-6 h-6 text-red-400" />
@@ -49,7 +49,7 @@ export function FinancialTab() {
           <div className="flex items-start justify-between mb-2">
             <div>
               <p className="text-gray-400 text-sm mb-1">Net Profit</p>
-              <p className="text-3xl font-bold text-blue-400">${(financialOverview.netProfit / 1000).toFixed(1)}K</p>
+              <p className="text-3xl font-bold text-blue-400">Ush {(financialOverview.netProfit / 1000).toFixed(1)}K</p>
             </div>
             <div className="bg-blue-500/20 p-3 rounded-lg">
               <TrendingUp className="w-6 h-6 text-blue-400" />

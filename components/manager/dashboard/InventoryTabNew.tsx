@@ -107,7 +107,7 @@ export function InventoryTabNew() {
         <Card className="bg-[#1a1625] border-gray-800 p-4">
           <p className="text-gray-400 text-sm mb-1">Total Stock Value</p>
           <p className="text-3xl font-bold text-green-400">
-            ${(products.reduce((sum: number, p: any) => sum + (p.stock * p.costPrice), 0)).toFixed(0)}
+            Ush {(products.reduce((sum: number, p: any) => sum + (p.stock * p.costPrice), 0)).toFixed(0)}
           </p>
         </Card>
         <Card className="bg-[#1a1625] border-gray-800 p-4">
