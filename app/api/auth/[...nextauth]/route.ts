@@ -49,8 +49,9 @@ export const authOptions: AuthOptions = {
             role: user.role,
           };
         } catch (error) {
-          console.error("Auth error:", error);
-          throw error;
+          const message = error instanceof Error ? error.message : "Authentication failed";
+          console.error("Auth error:", message);
+          throw new Error(message);
         }
       }
     })
@@ -61,7 +62,6 @@ export const authOptions: AuthOptions = {
   },
   pages: {
     signIn: "/login",
-    error: "/login",
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -79,7 +79,7 @@ export const authOptions: AuthOptions = {
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "development-secret-change-in-production",
 };
 
 const handler = NextAuth(authOptions);

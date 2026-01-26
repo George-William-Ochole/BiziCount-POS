@@ -1,79 +1,78 @@
-import { DepartmentPerformance } from "@/components/storemanager/dashboard/DepartmentPerformance";
-import { EmployeeActivity } from "@/components/storemanager/dashboard/EmployeeActivity";
-import { Header } from "@/components/storemanager/dashboard/Header";
-import { InventoryAlerts } from "@/components/storemanager/dashboard/InventoryAlert";
-import { ManagerQuickActions } from "@/components/storemanager/dashboard/ManagerQuickActions";
-import { ManagerStats } from "@/components/storemanager/dashboard/ManagerStats";
-import { PurchaseOrders } from "@/components/storemanager/dashboard/PurchaseOrders";
-import { SalesChart } from "@/components/storemanager/dashboard/SalesChart";
-import { Sidebar } from "@/components/storemanager/dashboard/SideBar";
-import { TopProducts } from "@/components/storemanager/dashboard/TopProducts";
+'use client';
 
-export default function App() {
-    return (
-        <div className="flex h-screen bg-[#0d0d0d] overflow-hidden">
-            {/* Sidebar */}
-            <Sidebar activeItem="dashboard" />
+import { AnalyticsTab } from '@/components/manager/dashboard/AnalyticsTab';
+import { BulkImportTab } from '@/components/manager/dashboard/BulkIportsTab';
+import { ExportTab } from '@/components/manager/dashboard/ExportTab';
+import { Header } from '@/components/manager/dashboard/Header';
+import { InventoryTab } from '@/components/manager/dashboard/InventoryTab';
+import { OverviewTab } from '@/components/manager/dashboard/OverviewTab';
+import { PricingTab } from '@/components/manager/dashboard/PricingTab';
+import { PurchaseOrdersTab } from '@/components/manager/dashboard/PurchaseOrdersTab';
+import { Sidebar } from '@/components/manager/dashboard/SideBar';
+import { SuppliersTab } from '@/components/manager/dashboard/SuppliersTab';
+import { useState } from 'react';
 
-            {/* Main Content */}
-            <div className="flex-1 flex flex-col overflow-hidden">
-                {/* Header */}
-                <Header />
 
-                {/* Manager Dashboard Content */}
-                <div className="flex-1 overflow-y-auto">
-                    <div className="p-6">
-                        {/* Page Title */}
-                        <div className="flex items-center justify-between mb-6">
-                            <div>
-                                <h1 className="text-white text-2xl font-semibold">Store Manager Dashboard</h1>
-                                <p className="text-gray-400 text-sm">Sunday, January 25, 2026 • M Super - Main Branch</p>
-                            </div>
-                        </div>
+export default function ManagerDashboard() {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-                        {/* Manager Stats Overview */}
-                        <div className="mb-6">
-                            <ManagerStats />
-                        </div>
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'overview':
+        return <OverviewTab onTabChange={setActiveTab} />;
+      case 'inventory':
+        return <InventoryTab />;
+      case 'products':
+        return <InventoryTab />;
+      case 'pricing':
+        return <PricingTab />;
+      case 'purchase-orders':
+        return <PurchaseOrdersTab />;
+      case 'suppliers':
+        return <SuppliersTab />;
+      case 'analytics':
+        return <AnalyticsTab />;
+      case 'reports':
+        return <AnalyticsTab />;
+      case 'import':
+        return <BulkImportTab />;
+      case 'export':
+        return <ExportTab />;
+      case 'settings':
+        return (
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-2">Settings</h2>
+            <p className="text-gray-400">Settings panel coming soon...</p>
+          </div>
+        );
+      default:
+        return <OverviewTab onTabChange={setActiveTab} />;
+    }
+  };
 
-                        {/* Quick Actions */}
-                        <div className="mb-6">
-                            <ManagerQuickActions />
-                        </div>
+  return (
+    <div className="min-h-screen bg-[#0f0a1a] text-gray-100 flex">
+      {/* Sidebar */}
+      <Sidebar
+        collapsed={sidebarCollapsed}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
 
-                        {/* Main Analytics Section */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                            {/* Sales Chart */}
-                            <SalesChart />
+      {/* Main Content */}
+      <div className={`flex-1 ${sidebarCollapsed ? 'ml-20' : 'ml-64'} transition-all duration-300`}>
+        {/* Top Header */}
+        <Header
+          activeTab={activeTab}
+          onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
+        />
 
-                            {/* Department Performance */}
-                            <DepartmentPerformance />
-                        </div>
-
-                        {/* Products & Orders Section */}
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                            {/* Top Products - Takes 2 columns */}
-                            <div className="lg:col-span-2">
-                                <TopProducts />
-                            </div>
-
-                            {/* Inventory Alerts */}
-                            <div>
-                                <InventoryAlerts />
-                            </div>
-                        </div>
-
-                        {/* Bottom Section */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            {/* Purchase Orders */}
-                            <PurchaseOrders />
-
-                            {/* Employee Activity */}
-                            <EmployeeActivity />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+        {/* Main Content Area */}
+        <main className="p-6">
+          {renderTabContent()}
+        </main>
+      </div>
+    </div>
+  );
 }

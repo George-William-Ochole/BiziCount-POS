@@ -1,72 +1,71 @@
-import { Header } from "@/components/cashier/dashboard/Header";
-import { PaymentPanel } from "@/components/cashier/dashboard/PaymentPannel";
-import { POSCart } from "@/components/cashier/dashboard/POSCart";
-import { ProductScanner } from "@/components/cashier/dashboard/ProductScanner";
-import { QuickActions } from "@/components/cashier/dashboard/QuickActions";
-import { QuickProductsGrid } from "@/components/cashier/dashboard/QuickProducts";
-import { RecentSales } from "@/components/cashier/dashboard/RecentSales";
-import { ShiftStats } from "@/components/cashier/dashboard/Shiftstats";
-import { Sidebar } from "@/components/cashier/dashboard/SideBar";
+'use client';
+
+import { CheckoutTab } from '@/components/cashier/dashboard/CheckoutTab';
+import { CustomersTab } from '@/components/cashier/dashboard/CustomersTab';
+import { EndOfDayTab } from '@/components/cashier/dashboard/EndOfDayTab';
+import { Header } from '@/components/cashier/dashboard/Header';
+import { offlineQueue } from '@/components/cashier/dashboard/mockData';
+import { ReportsTab } from '@/components/cashier/dashboard/ReportsTab';
+import { ReturnsTab } from '@/components/cashier/dashboard/ReturnsTab';
+import { SettingsTab } from '@/components/cashier/dashboard/SettingsTab';
+import { ShortcutsTab } from '@/components/cashier/dashboard/ShortcutTab';
+import { Sidebar } from '@/components/cashier/dashboard/SideBar';
+import { TransactionsTab } from '@/components/cashier/dashboard/TransactionsTab';
+import { useState } from 'react';
 
 
-export default function App() {
+export default function CashierDashboard() {
+  const [activeTab, setActiveTab] = useState('checkout');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isOffline, setIsOffline] = useState(false);
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'checkout':
+        return <CheckoutTab />;
+      case 'returns':
+        return <ReturnsTab />;
+      case 'transactions':
+        return <TransactionsTab />;
+      case 'customers':
+        return <CustomersTab />;
+      case 'eod':
+        return <EndOfDayTab />;
+      case 'reports':
+        return <ReportsTab />;
+      case 'shortcuts':
+        return <ShortcutsTab />;
+      case 'settings':
+        return <SettingsTab />;
+      default:
+        return <CheckoutTab />;
+    }
+  };
+
   return (
-    <div className="flex h-screen bg-[#0d0d0d] overflow-hidden">
+    <div className="min-h-screen bg-[#0f0a1a] text-gray-100 flex">
       {/* Sidebar */}
-      <Sidebar activeItem="pos" />
+      <Sidebar
+        collapsed={sidebarCollapsed}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        isOffline={isOffline}
+      />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <Header />
+      <div className={`flex-1 ${sidebarCollapsed ? 'ml-20' : 'ml-64'} transition-all duration-300`}>
+        {/* Top Header */}
+        <Header
+          activeTab={activeTab}
+          onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
+          isOffline={isOffline}
+          offlineQueueCount={offlineQueue.length}
+        />
 
-        {/* Cashier Board Content */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="p-6">
-            {/* Page Title */}
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h1 className="text-white text-2xl font-semibold">Point of Sale</h1>
-                <p className="text-gray-400 text-sm">Cashier Terminal - Register #3</p>
-              </div>
-              <span className="text-gray-400 text-sm">Sunday, January 25, 2026</span>
-            </div>
-
-            {/* Shift Stats */}
-            <div className="mb-6">
-              <ShiftStats />
-            </div>
-
-            {/* Main POS Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Left Section - Product Entry & Actions */}
-              <div className="lg:col-span-2 space-y-6">
-                {/* Scanner */}
-                <ProductScanner />
-
-                {/* Quick Categories */}
-                <QuickProductsGrid />
-
-                {/* Quick Actions */}
-                <QuickActions />
-
-                {/* Recent Sales */}
-                <RecentSales />
-              </div>
-
-              {/* Right Section - Cart & Payment */}
-              <div className="space-y-6">
-                {/* Current Transaction Cart */}
-                <div className="h-[500px]">
-                  <POSCart />
-                </div>
-
-                {/* Payment Panel */}
-                <PaymentPanel />
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Main Content Area */}
+        <main className="p-6">
+          {renderTabContent()}
+        </main>
       </div>
     </div>
   );

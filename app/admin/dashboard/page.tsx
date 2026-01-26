@@ -1,151 +1,82 @@
-"use client"
-import { ActionCard } from '@/components/admin/dashboard/ActionCard';
-import { Header } from '@/components/admin/dashboard/MHeader';
-import { OrderSummaryChart } from '@/components/admin/dashboard/OrderSummary';
-import { RecentTransactions } from '@/components/admin/dashboard/RecentTransactiona';
-import { Sidebar } from '@/components/admin/dashboard/SideBar';
-import { StatCard } from '@/components/admin/dashboard/StatCard';
-import { TopCategoriesChart } from '@/components/admin/dashboard/TopCategories';
-import { ShoppingCart, UserPlus, Truck, FilePlus } from 'lucide-react';
+'use client';
 
-// Mock data for stat cards
-const statData = {
-  totalOrders: {
-    data: [
-      { value: 50 },
-      { value: 55 },
-      { value: 52 },
-      { value: 58 },
-      { value: 62 },
-      { value: 59 },
-      { value: 65 },
-    ],
-  },
-  totalSales: {
-    data: [
-      { value: 85000 },
-      { value: 88000 },
-      { value: 90000 },
-      { value: 92000 },
-      { value: 94000 },
-      { value: 95000 },
-      { value: 97056 },
-    ],
-  },
-  newCustomers: {
-    data: [
-      { value: 28 },
-      { value: 26 },
-      { value: 27 },
-      { value: 25 },
-      { value: 26 },
-      { value: 25 },
-      { value: 24 },
-    ],
-  },
-  totalRevenue: {
-    data: [
-      { value: 24000 },
-      { value: 25000 },
-      { value: 25500 },
-      { value: 26000 },
-      { value: 26500 },
-      { value: 27000 },
-      { value: 27230 },
-    ],
-  },
-};
+import { AnalyticsTab } from '@/components/admin/dashboard/AnalyticsTab';
+import { AuditTab } from '@/components/admin/dashboard/AuditTab';
+import { FinancialTab } from '@/components/admin/dashboard/FinancialTab';
+import { Header } from '@/components/admin/dashboard/Header';
+import { systemNotifications } from '@/components/admin/dashboard/mockData';
+import { OverviewTab } from '@/components/admin/dashboard/OverviewTab';
+import { PermissionsTab } from '@/components/admin/dashboard/PermissionsTab';
+import { ReportsTab } from '@/components/admin/dashboard/ReportsTab';
+import { SettingsTab } from '@/components/admin/dashboard/SettingsTab';
+import { Sidebar } from '@/components/admin/dashboard/Sidebar';
+import { StoresTab } from '@/components/admin/dashboard/StoresTab';
+import { SuppliersTab } from '@/components/admin/dashboard/SuppliersTab';
+import { SystemTab } from '@/components/admin/dashboard/SystemTab';
+import { UsersTab } from '@/components/admin/dashboard/UsersTab';
+import { InventoryTab } from '@/components/manager/dashboard/InventoryTab';
+import { useState } from 'react';
 
-export default function App() {
+
+export default function AdminDashboard() {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const unreadNotifications = systemNotifications.filter((n) => !n.read).length;
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'overview':
+        return <OverviewTab onTabChange={setActiveTab} />;
+      case 'users':
+        return <UsersTab />;
+      case 'stores':
+        return <StoresTab />;
+      case 'financial':
+        return <FinancialTab />;
+      case 'inventory':
+        return <InventoryTab />;
+      case 'suppliers':
+        return <SuppliersTab />;
+      case 'analytics':
+        return <AnalyticsTab />;
+      case 'reports':
+        return <ReportsTab />;
+      case 'audit':
+        return <AuditTab />;
+      case 'permissions':
+        return <PermissionsTab />;
+      case 'system':
+        return <SystemTab />;
+      case 'settings':
+        return <SettingsTab />;
+      default:
+        return <OverviewTab onTabChange={setActiveTab} />;
+    }
+  };
+
   return (
-    <div className="flex h-screen bg-[#0d0d0d] overflow-hidden">
+    <div className="min-h-screen bg-[#0f0a1a] text-gray-100 flex">
       {/* Sidebar */}
-      <Sidebar activeItem="dashboard" />
+      <Sidebar
+        collapsed={sidebarCollapsed}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <Header />
+      <div className={`flex-1 ${sidebarCollapsed ? 'ml-20' : 'ml-64'} transition-all duration-300`}>
+        {/* Top Header */}
+        <Header
+          activeTab={activeTab}
+          onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
+          notificationCount={unreadNotifications}
+        />
 
-        {/* Dashboard Content */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="p-6">
-            {/* Page Title */}
-            <div className="flex items-center justify-between mb-6">
-              <h1 className="text-white text-2xl font-semibold">Dashboard</h1>
-              <span className="text-gray-400 text-sm">05/11/2023 - 11/11/ 2023</span>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <StatCard
-                title="Total Orders"
-                value={65}
-                change={12}
-                data={statData.totalOrders.data}
-                color="#ec4899"
-              />
-              <StatCard
-                title="Total Sales"
-                value="97,056"
-                change={8.1}
-                data={statData.totalSales.data}
-                color="#fb923c"
-              />
-              <StatCard
-                title="New Customers"
-                value={24}
-                change={-3.2}
-                data={statData.newCustomers.data}
-                color="#22d3ee"
-              />
-              <StatCard
-                title="Total Revenue"
-                value="27,230"
-                change={4.3}
-                data={statData.totalRevenue.data}
-                color="#a3e635"
-              />
-            </div>
-
-            {/* Charts Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-              <div className="lg:col-span-2">
-                <OrderSummaryChart />
-              </div>
-              <div>
-                <TopCategoriesChart />
-              </div>
-            </div>
-
-            {/* Action Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <ActionCard
-                title="Add New Item"
-                icon={ShoppingCart}
-                iconColor="#ec4899"
-              />
-              <ActionCard
-                title="Add New Customer"
-                icon={UserPlus}
-                iconColor="#ec4899"
-              />
-              <ActionCard
-                title="Add New Supplier"
-                icon={Truck}
-                iconColor="#ec4899"
-              />
-              <ActionCard
-                title="Add New Order"
-                icon={FilePlus}
-                iconColor="#ec4899"
-              />
-            </div>
-
-            {/* Recent Transactions */}
-            <RecentTransactions />
-          </div>
-        </div>
+        {/* Main Content Area */}
+        <main className="p-6">
+          {renderTabContent()}
+        </main>
       </div>
     </div>
   );
